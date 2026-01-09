@@ -8,9 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController {
 	#[Route('/', name: 'app_home')]
 	public function index(): Response {
-		return new Response (
-			"<html><body><p>Bienvenue sur ma page d'accueil !</p></body></html>"
-		);
+		return $this->render("home/home.html.twig");
 	}
 }
 
