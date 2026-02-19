@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1 class="title">{{ title }}</h1>
+	<div class="page-tools">
+		<div class="left-links">
+			{% if is_granted('ROLE_ADMIN') %}
+				<a href="{{ path('meta_page', {'title': page.title}) }}">Edit Admin</a>
+				<a href="{{ path('delete_page', {'title': page.title}) }}">Delete</a>
+			{% endif %}
+		</div>
+
+		<div class="right-links">
+			<a href="{{ path('edit_page', {'title': page.title}) }}">Edit</a>
+		</div>
+	</div>
+	{{ html|raw }}
+{% endblock %}

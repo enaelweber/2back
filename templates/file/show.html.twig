@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Files{% endblock %}
+
+{% block body %}
+	<p>Fichier : {{ file.fileName }}</p>
+	<img src="{{ asset('uploads/files/' ~ file.fileName) }}">
+	<p>Auteur : {{ file.author.username }}</p>
+
+	<a href="/uploads/files/{{ file.fileName }}" target="_blank">Télécharger</a>
+
+	<form method="post" action="{{ path('file_delete', {id: file.id}) }}">
+		<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ file.id) }}">
+		<button>Supprimer</button>
+	</form>
+{% endblock %}

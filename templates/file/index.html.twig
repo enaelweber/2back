@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Files{% endblock %}
+
+{% block body %}
+	{% for file in files %}
+		<img src="{{ asset('uploads/files/' ~ file.fileName) }}">
+		<p>
+			{{ file.fileName }} -
+			{{ file.author.username }} -
+			{{ file.date|date('d/m/Y') }}
+			<a href="{{ path('file_show', {id: file.id}) }}">Voir</a>
+		</p>
+	{% endfor %}
+
+	<a href="{{ path('file_new') }}">Ajouter</a>
+{% endblock %}

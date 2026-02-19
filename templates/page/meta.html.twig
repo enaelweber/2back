@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Page{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {
+		'attr': {'class': 'wiki-form'}
+	}) }}
+		{{ form_row(form.title) }}
+		{{ form_row(form.categories) }}
+
+		<button type="submit">Save</button>
+	{{ form_end(form) }}
+{% endblock %}

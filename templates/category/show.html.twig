@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ name }}{% endblock %}
+
+{% block body %}
+	<a href="{{ path('edit_category', {'name': category.name}) }}">Edit</a>
+    <ul>
+        {% for page in pages %}
+            <li><a href="{{ path('show_page', {'title': page.title}) }}">{{ page.title }}</a></li>
+        {% else %}
+            <li>No page found.</li>
+        {% endfor %}
+    </ul>
+	{% if is_granted('ROLE_ADMIN') %}
+		<a href="{{ path('delete_category', {'name': category.name}) }}">Delete</a>
+	{% endif %}
+{% endblock %}

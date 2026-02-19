@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Page{% endblock %}
+
+{% block body %}
+	<h1 class="title">Edit:{{ page.title }}</h1>
+	<div class="page-tools">
+		<div class="left-links">
+			{% if is_granted('ROLE_ADMIN') %}
+				<a href="{{ path('meta_page', {'title': page.title}) }}">Edit Admin</a>
+				<a href="{{ path('delete_page', {'title': page.title}) }}">Delete</a>
+			{% endif %}
+		</div>
+
+		<div class="right-links">
+			<a href="{{ path('show_page', {'title': page.title}) }}">View</a>
+		</div>
+	</div>
+    {{ form_start(form, {
+		'attr': {'class': 'wiki-form'}
+	}) }}
+		{{ form_row(form.wikitext) }}
+		{{ form_row(form.comment) }}
+		<button type="submit">Submit</button>
+	{{ form_end(form) }}
+{% endblock %}

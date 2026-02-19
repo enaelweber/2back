@@ -1,0 +1,325 @@
+/* Base reset */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #202122;
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+/* Page layout */
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: #000;
+  line-height: 1.25;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h1, h2 {
+	font-family: Georgia, "Times New Roman", Times, serif
+}
+
+h1 {
+  font-size: 2.1rem;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 0.25em;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1.6rem;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 0.25em;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+/* Paragraphs */
+p {
+  margin: 0.5em 0 1em;
+}
+
+/* Links */
+a {
+  color: #0645ad;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #0b0080;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: #faa700;
+}
+
+/* Lists */
+ul, ol {
+  margin: 0.5em 0 1em 1.6em;
+}
+
+li {
+  margin: 0.25em 0;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid #a2a9b1;
+  padding: 0.4em 0.6em;
+  vertical-align: top;
+}
+
+th {
+  background-color: #eaecf0;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Code blocks */
+pre, code {
+  font-family: Consolas, "Liberation Mono", Menlo, monospace;
+  background-color: #f8f9fa;
+}
+
+pre {
+  padding: 0.75em;
+  border: 1px solid #a2a9b1;
+  overflow-x: auto;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 4px solid #a2a9b1;
+  color: #54595d;
+}
+
+.page-tools {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  margin: 0.25em 0 1em;
+  padding: 0 0;
+  border-bottom: 1px solid #ccd7e2; /* giant line under bar */
+  line-height: 1.5;
+  position: relative;
+}
+
+/* Left and right link groups */
+.page-tools .left-links,
+.page-tools .right-links {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+/* Links styling */
+.page-tools a {
+  color: #0645ad;
+  text-decoration: none; /* remove underline */
+  position: relative;
+  padding: 0.25em 0; /* some vertical padding for hover effect */
+  transition: color 0.2s;
+}
+
+/* Hover effect: highlight a segment of border-bottom */
+.page-tools a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* line just under main border */
+  width: 0;
+  height: 2px;
+  background-color: #0645ad; /* highlight color */
+  transition: width 0.2s ease-in-out;
+}
+
+.page-tools a:hover::after {
+  width: 100%; /* full width under link on hover */
+}
+
+/* Form container - centered */
+.wiki-form {
+  margin: 2em auto; /* centers horizontally */
+  padding: 1.5em;
+  border: 1px solid #a2a9b1;
+  background-color: #f8f9fa;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  max-width: 800px;   /* slightly wider than before */
+  width: 90%;         /* responsive for smaller screens */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* subtle shadow like Wikipedia infoboxes */
+  border-radius: 4px;
+}
+
+/* Labels */
+.wiki-form label {
+  display: block;
+  margin-bottom: 0.3em;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #202122;
+}
+
+/* Large textarea for main text */
+.wiki-form textarea.large-text {
+  width: 100%;
+  min-height: 300px; /* slightly taller */
+  padding: 0.5em;
+  font-size: 1rem;
+  border: 1px solid #a2a9b1;
+  background-color: #ffffff;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Small textarea / comment box */
+.wiki-form textarea.small-text {
+  width: 100%;
+  min-height: 30px; /* slightly taller */
+  padding: 0.5em;
+  font-size: 0.95rem;
+  border: 1px solid #a2a9b1;
+  background-color: #ffffff;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.wiki-form textarea {
+	font-family: monospace;
+}
+
+/* Submit button */
+.wiki-form button[type="submit"] {
+  margin-top: 0.75em;
+  padding: 0.65em 1.3em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #202122;
+  background-color: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.wiki-form button[type="submit"]:hover {
+  background-color: #eaecef;
+  border-color: #7a8288;
+}
+
+/* Multi-select container */
+.wiki-form select[multiple] {
+  width: 100%;
+  min-height: 150px;       /* tall enough to see multiple options */
+  padding: 0.5em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
+  border: 1px solid #a2a9b1;
+  background-color: #ffffff;
+  line-height: 1.5;
+  overflow-y: auto;        /* adds scroll if many options */
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* Option hover/selection */
+.wiki-form select[multiple] option:hover {
+  background-color: #eaecef;
+}
+
+.wiki-form select[multiple] option:checked {
+  background-color: #cde1f7; /* subtle Wikipedia-style highlight */
+  color: #202122;
+}
+
+/* Top navigation bar */
+.wiki-nav {
+  width: 100%;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #a2a9b1;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Navigation list */
+.wiki-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;     /* vertical centering */
+  gap: 1.5em;
+}
+
+/* List items */
+.wiki-nav li {
+  white-space: nowrap;
+}
+
+/* Links */
+.wiki-nav a {
+  color: #0645ad;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.25em 0.3em;
+}
+
+/* Hover and focus states */
+.wiki-nav a:hover,
+.wiki-nav a:focus {
+  text-decoration: underline;
+}
+
+/* Active/current page */
+.wiki-nav a.active {
+  font-weight: 600;
+  color: #202122;
+  cursor: default;
+  text-decoration: none;
+}
